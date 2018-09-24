@@ -1,14 +1,16 @@
+# Updates 02/20/2018
+1. FastViromeExplorer now accepts gzipped files as input. So input read files can be in gzipped(.gz) format
+2. Added script to generate virus list file if user wants to use a custom database
+3. User can run FastViromeExplorer with salmon tool also instead of kallisto
+
 # FastViromeExplorer
-Indentify the viruses/phages and their abundance in the viral metagenomics data. The paper  describing FastViromeExplorer is available from here: https://peerj.com/articles/4227/.
+Indentify the viruses/phages and their abundance in the viral metagenomics data. The paper describing FastViromeExplorer is available from here: https://peerj.com/articles/4227/.
 
 # Installation
 FastViromeExplorer requires JAVA (JDK) 1.8 or later, Samtools 1.4 or later, and Kallisto 0.43.0 or later installed in the user's machine.
 ## Download FastViromeExplorer
-You can download FastViromeExplorer directly from github and extract it. You can also download it using the following command:
-```bash
-git clone https://github.com/saima-tithi/FastViromeExplorer.git
-```
-From now on, we will refer the FastViromeExplorer directory in the user's local machine as `project directory`. The `project directory` will contain 5 folders: src, bin, test, tools-linux, and tools-mac. It will also contain two text files: ncbi-viruses-list and imgvr-viruses-list.txt.
+You can download FastViromeExplorer directly in zipped format from this page using the "Download" button and extract it.
+From now on, we will refer the FastViromeExplorer directory in the user's local machine as `project directory`. The `project directory` will contain 6 folders: src, bin, test, tools-linux, tools-mac, and utility-scripts. It will also contain two text files: ncbi-viruses-list and imgvr-viruses-list.txt.
 ## Install Java
 If Java is not already installed, you need to install Java (JDK) 1.8 or later from the following link: http://www.oracle.com/technetwork/java/javase/downloads/index.html. From this link, download the appropriate jdk installation file (for linux or macOS), and then install Java by double-clicking the downloaded installation file.
 ## Install Kallisto and Samtools
@@ -27,6 +29,28 @@ cd /path-to-FastViromeExplorer/tools-mac
 sudo cp kallisto /usr/local/bin/
 sudo cp samtools /usr/local/bin/
 ```
+
+After installing Kallisto and Samtools, you can check it by running the following commands to check their version.
+```bash
+kallisto version
+samtools
+```
+It will show you outputs like this in terminal:
+```bash
+kallisto, version 0.43.1
+```
+```bash
+Program: samtools (Tools for alignments in the SAM format)
+Version: 1.5 (using htslib 1.5)
+...
+```
+
+If the executables given for kallisto or samtools is not working properly, you need to download and install them from source from their respective websites. 
+
+You can download samtools source from this link https://sourceforge.net/projects/samtools/files/ or from this link https://github.com/samtools/samtools/releases and then install it by following their installation guideline. 
+
+You can download kallisto executables from this link https://pachterlab.github.io/kallisto/download.
+
 ## Install FastViromeExplorer
 In terminal, go into the project directory, which should contain `src` and `bin` folders. From the project directory, run the following command:
 ```bash
